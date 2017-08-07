@@ -1,7 +1,8 @@
+function main() {
 var margin = {top: 20, right: 120, bottom: 20, left: 120},
     width = {{width}},
     //width = 2000
-    height = {{height}};
+    height = {{height}} - margin.top - margin.bottom;
     //width = 960 - margin.right - margin.left,
     //height = 800 - margin.top - margin.bottom;
 
@@ -15,7 +16,7 @@ var tree = d3.layout.tree()
 var diagonal = d3.svg.diagonal()
     .projection(function(d) { return [d.y, d.x]; });
 
-var svg = d3.select("#chart").append("svg")
+var svg = d3.select("#{{chartid}}").append("svg")
     .attr("width", width + margin.right + margin.left)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
@@ -40,7 +41,7 @@ d3.json("{{filename}}", function(error, flare) {
   update(root);
 });
 
-d3.select(self.frameElement).style("height", "800px");
+d3.select(self.frameElement).style("height", "{{height}}px");
 
 function update(source) {
 
@@ -140,3 +141,5 @@ function click(d) {
   }
   update(d);
 }
+}
+main()

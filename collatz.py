@@ -77,11 +77,23 @@ def next(x):
         return x // 2
 
 def parent(x):
-    """Returns the next odd number in the collatz sequence (parent in collatz tree)"""
+    """Returns the next odd number in the collatz sequence (parent in collatz tree)."""
     y = 3 * x + 1
     while not y % 2:
         y /= 2
     return y
+
+def children(x, n):
+    """Returns list of first n children of x."""
+    if x % 3 == 0:
+        return []
+    elif x % 3 == 1:
+        evens = [2 ** (2 * i) * x for i in range(1, n+1)]
+        return [(x - 1) // 3 for x in evens]
+    else:
+        evens = [2 ** (2 * i + 1) * x for i in range(0, n)]
+        return [(x - 1) // 3 for x in evens]
+
 
 def ancestors(x):
     """Returns sequence of odd numbers in collatz sequence starting at x."""
