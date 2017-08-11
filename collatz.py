@@ -80,7 +80,7 @@ def parent(x):
     """Returns the next odd number in the collatz sequence (parent in collatz tree)."""
     y = 3 * x + 1
     while not y % 2:
-        y /= 2
+        y //= 2
     return y
 
 def children(x, n):

@@ -59,9 +59,6 @@ def get_html(tree, width=2000, height=500):
         width (int): width of plot in px.
         height (int): height of plot in px.
     """
-    with open('collatz.json', 'w') as fh:
-        fh.write(json.dumps(tree))
-
     def replace(_tmpl, **kwargs):
         for k, v in kwargs.items():
             _tmpl = _tmpl.replace('{{{{{}}}}}'.format(k), str(v))
@@ -71,7 +68,7 @@ def get_html(tree, width=2000, height=500):
 
     with open('tree.js.tmpl') as fh:
         tmpl = ''.join(fh.readlines())
-        js_src = replace(tmpl, width=width, height=height, filename='collatz.json', chartid=chartid)
+        js_src = replace(tmpl, width=width, height=height, data=json.dumps(tree), chartid=chartid)
 
     with open('tree.html') as fh:
         html_src = ''.join(fh.readlines())
