@@ -1,4 +1,5 @@
-This is a repo of my toying with the Collatz. For the writeup, see [collatz_tree.ipynb](https://github.com/dkamm/collatz/blob/master/collatz_tree.ipynb)
+## Collatz Tree
+This is a repo of my toying with the Collatz problem. For the writeup, see [collatz_tree.ipynb](https://github.com/dkamm/collatz/blob/master/collatz_tree.ipynb)
 
 There are 2 code files.
 
